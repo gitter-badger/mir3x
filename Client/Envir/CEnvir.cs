@@ -23,7 +23,6 @@ using System.Security.Policy;
 using System.Security.Permissions;
 using System.Security.Cryptography.X509Certificates;
 using Client.Envir.Translations;
-using Sentry;
 using System.Reflection;
 
 namespace Client.Envir
@@ -814,7 +813,6 @@ namespace Client.Envir
         public static void SaveException(Exception ex)
         {
             SaveError(ex.ToString());
-            if (Config.SentryEnabled) SentrySdk.CaptureException(ex);
         }
 
         public static void Unload()

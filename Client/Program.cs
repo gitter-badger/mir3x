@@ -9,7 +9,6 @@ using Client.Controls;
 using Client.Envir;
 using Client.Scenes;
 using Library;
-using Sentry;
 using SlimDX.Windows;
 
 namespace Client
@@ -24,15 +23,7 @@ namespace Client
         {
             ConfigReader.Load(Assembly.GetAssembly(typeof(Config)));
 
-            if (Config.SentryEnabled && !string.IsNullOrEmpty(Config.SentryDSN))
-            {
-                using (SentrySdk.Init(Config.SentryDSN))
-                    Init();
-            }
-            else
-            {
-                Init();
-            }
+            Init();
 
             ConfigReader.Save(typeof(Config).Assembly);
         }

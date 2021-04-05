@@ -5,3 +5,5 @@ Build/
 [Oo]bj/
 [Bb]in/
 packages/
+
+.DS_Store
