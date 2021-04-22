@@ -2,6 +2,7 @@
 *.user
 Build/
 .vs/
+.vscode/
 [Oo]bj/
 [Bb]in/
 packages/

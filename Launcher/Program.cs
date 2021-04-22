@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Reflection;
 using DevExpress.UserSkins;
 using DevExpress.Skins;
 using DevExpress.LookAndFeel;
@@ -19,7 +20,7 @@ namespace Launcher
         [STAThread]
         static void Main()
         {
-            ConfigReader.Load();
+            ConfigReader.Load(Assembly.GetEntryAssembly());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -30,7 +31,7 @@ namespace Launcher
 
             Application.Run(new LMain());
 
-            ConfigReader.Save();
+            ConfigReader.Save(Assembly.GetEntryAssembly());
         }
     }
 }

@@ -53,8 +53,12 @@ namespace LibraryEditor
 
         private void Form1_DragDrop(object sender, DragEventArgs e)
         {
-            return; //Not added yet
+            // TODO didn't add yet, Form1_DragDrop0(sender, e);
+            return;
+        }
 
+        private void Form1_DragDrop0(object sender, DragEventArgs e)
+        {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
 
             if (Path.GetExtension(files[0]).ToUpper() == ".WIL" ||

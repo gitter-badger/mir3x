@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Debug\ImageManager\</OutputPath>
+    <OutputPath>bin/$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -29,7 +29,7 @@
     <PlatformTarget>x64</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Release\ImageManager\</OutputPath>
+    <OutputPath>bin/$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -38,30 +38,36 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.BonusSkins.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.BonusSkins.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Data.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Data.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Utils.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Utils.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v18.2.Core">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraBars.v18.2, Version=18.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.XtraBars.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.XtraBars.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.XtraEditors.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.XtraEditors.v18.2.dll</HintPath>
     </Reference>
-    <Reference Include="ManagedSquish">
-      <HintPath>..\Components\ManagedSquish.dll</HintPath>
+    <Reference Include="ManagedSquish, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=MSIL">
+      <HintPath>..\packages\ManagedSquish.2.0.0.0\lib\net40\ManagedSquish.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x64, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=AMD64">
+      <HintPath>..\packages\ManagedSquish.2.0.0.0\lib\net40\NativeSquish_x64.dll</HintPath>
+    </Reference>
+    <Reference Include="NativeSquish_x86, Version=2.0.0.0, Culture=neutral, PublicKeyToken=fac8b2bfeda84eab, processorArchitecture=x86">
+      <HintPath>..\packages\ManagedSquish.2.0.0.0\lib\net40\NativeSquish_x86.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -100,6 +106,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -19,7 +19,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\Debug\PatchManager\</OutputPath>
+    <OutputPath>bin/$(Configuration)</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -28,7 +28,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Release\PatchManager\</OutputPath>
+    <OutputPath>bin/$(Configuration)</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -36,23 +36,23 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.BonusSkins.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.BonusSkins.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Data.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Data.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Utils.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Utils.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Utils.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Sparkline.v18.2.Core">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.Sparkline.v18.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.XtraEditors.v18.2">
       <Private>False</Private>
-      <HintPath>..\..\DevExpress Components RUNTIME\DevExpress.XtraEditors.v18.2.dll</HintPath>
+      <HintPath>..\DevExpress\DevExpress.XtraEditors.v18.2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

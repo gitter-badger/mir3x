@@ -234,6 +234,6 @@
         private DevExpress.XtraBars.BarButtonItem SelectionButton;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem SaveButton;
-        private DevExpress.XtraBars.BarButtonItem CancelButton;
+        private new DevExpress.XtraBars.BarButtonItem CancelButton;
     }
 }
