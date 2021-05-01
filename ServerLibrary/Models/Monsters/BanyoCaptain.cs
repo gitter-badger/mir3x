@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Server.Envir;
 using Library;
 using S = Library.Network.ServerPackets;

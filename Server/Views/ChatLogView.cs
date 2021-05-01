@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using DevExpress.XtraBars;
 using Server.Envir;

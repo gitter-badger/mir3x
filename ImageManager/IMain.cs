@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DevExpress.XtraEditors;
 
 namespace ImageManager
 {
-    public partial class IMain : XtraForm
+    public partial class IMain : Form
     {
 
         public int TotleCount;
@@ -63,7 +62,7 @@ namespace ImageManager
 
         private async void ConvertLibrariesButton_Click(object sender, EventArgs e)
         {
-            DirectoryInfo directory = new DirectoryInfo((string) SelectedFolderButtonEdit.EditValue);
+            DirectoryInfo directory = new DirectoryInfo((string) folderTextBox.Text);
 
             if (!directory.Exists) return;
 
@@ -109,15 +108,9 @@ namespace ImageManager
             ProgressLabel.Text = $"{ProgressCount} of {TotleCount}.";
         }
 
-        private void SelectedFolderButtonEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+        private async void CreateLibrariesButton_Click(object sender, EventArgs e)
         {
-            if (FolderDialog.ShowDialog() == DialogResult.OK)
-                SelectedFolderButtonEdit.EditValue = FolderDialog.SelectedPath;
-        }
-
-        private async void CreaetLibrariesButton_Click(object sender, EventArgs e)
-        {
-            DirectoryInfo directory = new DirectoryInfo((string)SelectedFolderButtonEdit.EditValue);
+            DirectoryInfo directory = new DirectoryInfo((string)folderTextBox.Text);
 
             if (!directory.Exists) return;
 

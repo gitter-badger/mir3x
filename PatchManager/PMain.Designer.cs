@@ -1,4 +1,4 @@
-﻿namespace PatchManager
+namespace PatchManager
 {
     partial class PMain
     {

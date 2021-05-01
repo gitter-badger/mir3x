@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Ribbon;
 using Library;

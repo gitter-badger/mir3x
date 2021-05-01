@@ -1,4 +1,4 @@
-﻿using MirDB;
+using MirDB;
 using Server.Envir;
 using System;
 using System.Collections.Generic;

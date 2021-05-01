@@ -1,4 +1,4 @@
-﻿using MirDB;
+using MirDB;
 
 namespace Library.SystemModels
 {

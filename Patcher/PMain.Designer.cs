@@ -1,4 +1,4 @@
-﻿namespace Patcher
+namespace Patcher
 {
     partial class PMain
     {

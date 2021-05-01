@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid.Views.Grid;
 using Server.Envir;
 
 namespace Server.Views

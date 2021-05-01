@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime;
 using System.Windows.Forms;
 using DevExpress.UserSkins;

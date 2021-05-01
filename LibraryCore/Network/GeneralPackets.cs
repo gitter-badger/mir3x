@@ -1,4 +1,4 @@
-﻿namespace Library.Network.GeneralPackets
+namespace Library.Network.GeneralPackets
 {
     public sealed class Connected : Packet { }
     public sealed class Ping : Packet { }

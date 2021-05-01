@@ -1,8 +1,10 @@
-﻿using Autofac;
+using Autofac;
 using Library;
 using Server.Envir;
 using System;
 using System.Reflection;
+using System.Runtime;
+using System.Net;
 
 namespace Server
 {
@@ -12,7 +14,13 @@ namespace Server
         {
             var assembly = Assembly.GetAssembly(typeof(Config));
             ConfigReader.Load(assembly);
+
             Config.LoadVersion();
+
+            GCSettings.LatencyMode = GCLatencyMode.SustainedLowLatency;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls |
+                                                   SecurityProtocolType.Tls11 |
+                                                   SecurityProtocolType.Tls12;
 
             SEnvir.UseLogConsole = true;
             SEnvir.StartServer();
@@ -26,6 +34,7 @@ namespace Server
 
             }
 
+            // TODO fix that, not executing as expected. Server.ini hasn't been generated.
             ConfigReader.Save(typeof(Config).Assembly);
         }
 

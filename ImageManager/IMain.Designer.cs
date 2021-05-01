@@ -1,4 +1,6 @@
-﻿namespace ImageManager
+using System.Windows.Forms;
+
+namespace ImageManager
 {
     partial class IMain
     {
@@ -28,44 +30,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.SelectedFolderButtonEdit = new DevExpress.XtraEditors.ButtonEdit();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.SubFoldersCheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.ConvertButton = new DevExpress.XtraEditors.SimpleButton();
-            this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.ProgressLabel = new DevExpress.XtraEditors.LabelControl();
-            this.CreaetLibrariesButton = new DevExpress.XtraEditors.SimpleButton();
-            this.FolderDialog = new System.Windows.Forms.FolderBrowserDialog();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectedFolderButtonEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubFoldersCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
+            this.folderTextBox = new TextBox();
+            this.labelControl1 = new Label();
+            this.SubFoldersCheckEdit = new CheckBox();
+            this.labelControl2 = new Label();
+            this.ConvertButton = new Button();
+            this.CreateLibrariesButton = new Button();
+            this.progressBarControl1 = new ProgressBar();
+            this.labelControl3 = new Label();
+            this.ProgressLabel = new Label();
+            this.simpleButton1 = new Button();
             this.SuspendLayout();
             // 
-            // ribbonPageGroup1
+            // folderTextBox
             // 
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
-            // 
-            // SelectedFolderButtonEdit
-            // 
-            this.SelectedFolderButtonEdit.EditValue = "C:\\Zircon Server\\Data Works\\Test";
-            this.SelectedFolderButtonEdit.Location = new System.Drawing.Point(113, 12);
-            this.SelectedFolderButtonEdit.Name = "SelectedFolderButtonEdit";
-            this.SelectedFolderButtonEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.SelectedFolderButtonEdit.Size = new System.Drawing.Size(184, 20);
-            this.SelectedFolderButtonEdit.TabIndex = 1;
-            this.SelectedFolderButtonEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.SelectedFolderButtonEdit_ButtonClick);
+            this.folderTextBox.Text = "C:\\Zircon Server\\Data Works\\Test";
+            this.folderTextBox.Location = new System.Drawing.Point(113, 12);
+            this.folderTextBox.Name = "folderTextBox";
+            this.folderTextBox.Size = new System.Drawing.Size(184, 20);
+            this.folderTextBox.TabIndex = 1;
             // 
             // labelControl1
             // 
-            this.labelControl1.Location = new System.Drawing.Point(41, 15);
+            this.labelControl1.Location = new System.Drawing.Point(31, 15);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(66, 13);
+            this.labelControl1.Size = new System.Drawing.Size(77, 13);
             this.labelControl1.TabIndex = 2;
             this.labelControl1.Text = "Select Folder:";
             // 
@@ -73,15 +62,14 @@
             // 
             this.SubFoldersCheckEdit.Location = new System.Drawing.Point(113, 38);
             this.SubFoldersCheckEdit.Name = "SubFoldersCheckEdit";
-            this.SubFoldersCheckEdit.Properties.Caption = "";
             this.SubFoldersCheckEdit.Size = new System.Drawing.Size(75, 19);
             this.SubFoldersCheckEdit.TabIndex = 3;
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(12, 41);
+            this.labelControl2.Location = new System.Drawing.Point(2, 41);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(95, 13);
+            this.labelControl2.Size = new System.Drawing.Size(105, 13);
             this.labelControl2.TabIndex = 4;
             this.labelControl2.Text = "Include SubFolders:";
             // 
@@ -103,9 +91,9 @@
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(12, 133);
+            this.labelControl3.Location = new System.Drawing.Point(10, 133);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(46, 13);
+            this.labelControl3.Size = new System.Drawing.Size(56, 13);
             this.labelControl3.TabIndex = 7;
             this.labelControl3.Text = "Progress:";
             // 
@@ -113,22 +101,18 @@
             // 
             this.ProgressLabel.Location = new System.Drawing.Point(64, 133);
             this.ProgressLabel.Name = "ProgressLabel";
-            this.ProgressLabel.Size = new System.Drawing.Size(41, 13);
+            this.ProgressLabel.Size = new System.Drawing.Size(51, 13);
             this.ProgressLabel.TabIndex = 8;
             this.ProgressLabel.Text = "<None>";
             // 
-            // CreaetLibrariesButton
+            // CreateLibrariesButton
             // 
-            this.CreaetLibrariesButton.Location = new System.Drawing.Point(113, 92);
-            this.CreaetLibrariesButton.Name = "CreaetLibrariesButton";
-            this.CreaetLibrariesButton.Size = new System.Drawing.Size(184, 23);
-            this.CreaetLibrariesButton.TabIndex = 0;
-            this.CreaetLibrariesButton.Text = "Create Libraries";
-            this.CreaetLibrariesButton.Click += new System.EventHandler(this.CreaetLibrariesButton_Click);
-            // 
-            // FolderDialog
-            // 
-            this.FolderDialog.SelectedPath = "C:\\Zircon Server\\Data Works\\Test";
+            this.CreateLibrariesButton.Location = new System.Drawing.Point(113, 92);
+            this.CreateLibrariesButton.Name = "CreateLibrariesButton";
+            this.CreateLibrariesButton.Size = new System.Drawing.Size(184, 23);
+            this.CreateLibrariesButton.TabIndex = 0;
+            this.CreateLibrariesButton.Text = "Create Libraries";
+            this.CreateLibrariesButton.Click += new System.EventHandler(this.CreateLibrariesButton_Click);
             // 
             // simpleButton1
             // 
@@ -144,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 182);
-            this.Controls.Add(this.simpleButton1);
+            // this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.ProgressLabel);
             this.Controls.Add(this.labelControl3);
             this.Controls.Add(this.progressBarControl1);
@@ -152,14 +136,11 @@
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.SubFoldersCheckEdit);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.SelectedFolderButtonEdit);
-            this.Controls.Add(this.CreaetLibrariesButton);
+            this.Controls.Add(this.folderTextBox);
+            this.Controls.Add(this.CreateLibrariesButton);
             this.Name = "IMain";
             this.Text = "Image Manager";
             this.Load += new System.EventHandler(this.IMain_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.SelectedFolderButtonEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SubFoldersCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,18 +148,16 @@
 
         #endregion
 
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
-        private DevExpress.XtraEditors.ButtonEdit SelectedFolderButtonEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
-        private DevExpress.XtraEditors.CheckEdit SubFoldersCheckEdit;
-        private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton ConvertButton;
-        private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
-        private DevExpress.XtraEditors.LabelControl labelControl3;
-        private DevExpress.XtraEditors.LabelControl ProgressLabel;
-        private DevExpress.XtraEditors.SimpleButton CreaetLibrariesButton;
-        private System.Windows.Forms.FolderBrowserDialog FolderDialog;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private TextBox folderTextBox;
+        private Label labelControl1;
+        private CheckBox SubFoldersCheckEdit;
+        private Label labelControl2;
+        private Button ConvertButton;
+        private Button simpleButton1;
+        private Button CreateLibrariesButton;
+        private Label labelControl3;
+        private Label ProgressLabel;
+        private ProgressBar progressBarControl1;
     }
 }
 

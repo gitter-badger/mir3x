@@ -1,4 +1,4 @@
-﻿using Library;
+using Library;
 
 namespace Server.Envir.Translations
 {

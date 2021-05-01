@@ -1,4 +1,4 @@
-﻿using MirDB;
+using MirDB;
 using System.Collections.Generic;
 
 namespace Library.SystemModels

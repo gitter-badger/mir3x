@@ -1,4 +1,4 @@
-﻿namespace LibraryEditor
+namespace LibraryEditor
 {
     partial class LMain
     {

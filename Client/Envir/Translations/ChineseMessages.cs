@@ -1,4 +1,4 @@
-﻿using Library;
+using Library;
 namespace Client.Envir.Translations
 {
     [ConfigPath(@".\Translations\ChineseMessages.ini")]
