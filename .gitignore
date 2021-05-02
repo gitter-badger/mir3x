@@ -1,6 +1,3 @@
-.idea/*
-*.user
-Build/
 .vs/
 .vscode/
 [Oo]bj/
