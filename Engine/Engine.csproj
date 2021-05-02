@@ -12,8 +12,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LibraryCore\LibraryCore.csproj" />
-    <ProjectReference Include="..\ServerLibrary\ServerLibrary.csproj" />
+    <ProjectReference Include="..\Library\Library.csproj" />
+    <ProjectReference Include="..\EngineLibrary\EngineLibrary.csproj" />
   </ItemGroup>
 
 </Project>

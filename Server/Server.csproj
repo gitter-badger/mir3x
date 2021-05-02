@@ -458,13 +458,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LibraryCore\LibraryCore.csproj">
+    <ProjectReference Include="..\Library\Library.csproj">
       <Project>{c47f32fa-4c04-4143-b4fe-623d4b014d0d}</Project>
-      <Name>LibraryCore</Name>
+      <Name>Library</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ServerLibrary\ServerLibrary.csproj">
+    <ProjectReference Include="..\EngineLibrary\EngineLibrary.csproj">
       <Project>{42e44f8e-c98b-4008-958a-5c8cb3d02b8d}</Project>
-      <Name>ServerLibrary</Name>
+      <Name>EngineLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
