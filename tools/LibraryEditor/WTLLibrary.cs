@@ -1,4 +1,3 @@
-using Library_Editor;
 using ManagedSquish;
 using System;
 using System.Collections;

@@ -8,7 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace LibraryEditor
 {
@@ -46,7 +45,7 @@ namespace LibraryEditor
             CurrentVersion = _reader.ReadInt32();
             if (CurrentVersion != LibVersion)
             {
-                MessageBox.Show("Wrong version, expecting lib version: " + LibVersion.ToString() + " found version: " + CurrentVersion.ToString() + ".", "Failed to open", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1);
+                Console.WriteLine("Wrong version, expecting lib version: " + LibVersion.ToString() + " found version: " + CurrentVersion.ToString() + ".", "Failed to open");
                 return;
             }
             Count = _reader.ReadInt32();
