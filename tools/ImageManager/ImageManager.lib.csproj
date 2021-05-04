@@ -2,6 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net48</TargetFramework>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Mir3Library.cs" />
+    <Compile Include="WTLLibrary.cs" />
+    <PackageReference Include="ManagedSquish" Version="2.0.0" />
+  </ItemGroup>
 
 </Project>

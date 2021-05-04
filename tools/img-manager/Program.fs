@@ -1,4 +1,4 @@
-﻿namespace ImageManager
+namespace ImgManager
 module Program =
 
     open System
@@ -6,7 +6,7 @@ module Program =
 
     [<EntryPoint>]
     [<STAThread>]
-    let Main(args) = 
+    let Main(args) =
         let etoPlatform =
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX)) then
                 Eto.Platforms.Mac64
