@@ -2,6 +2,53 @@ namespace LibEditor
 
 open Eto.Forms
 open Eto.Drawing
+open System.ComponentModel
+open System
+
+type LEFormModel () =
+
+    let mutable _width = "<no image>"
+    let mutable _height = "<no image>"
+    let mutable _offX = 0.0
+    let mutable _offY = 0.0
+    let mutable _nblur = Nullable false
+    let mutable _alias = Nullable false
+
+    let ev = Event<_, _>()
+    interface INotifyPropertyChanged with
+        [<CLIEvent>]
+        member this.PropertyChanged = ev.Publish
+
+    member this.width
+        with get() = _width
+        and set v =
+            _width <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("width"))
+    member this.height
+        with get() = _height
+        and set v =
+            _height <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("height"))
+    member this.offX
+        with get() = _offX
+        and set v =
+            _offX <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("offX"))
+    member this.offY
+        with get() = _offY
+        and set v =
+            _offY <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("offY"))
+    member this.nblur
+        with get() = _nblur
+        and set v =
+            _nblur <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("nblur"))
+    member this.alias
+        with get() = _alias
+        and set v =
+            _alias <- v
+            ev.Trigger(this, new PropertyChangedEventArgs("alias"))
 
 type LEForm () =
     inherit Form()
@@ -10,6 +57,7 @@ type LEForm () =
 
         base.Title <- "LibraryEditor"
         base.Size <- new Size(814, 1008)
+        let model = new LEFormModel()
 
         // setup menus
 
@@ -43,7 +91,7 @@ type LEForm () =
         menus.IncludeSystemItems <- MenuBarSystemItems.Quit
         base.Menu <- menus
 
-        // sub dialogs
+        // dialogs
 
         let openLibDialog = new OpenFileDialog()
         openLibDialog.Filters.Add(FileFilter("Zircon Library", [|".Zl"|]))
@@ -66,11 +114,16 @@ type LEForm () =
         radios.Items.Add("Image", "image")
         radios.Items.Add("Shadow", "shadow")
         radios.Items.Add("Overlay", "overlay")
+        radios.SelectedIndex <- 0
 
-        let widthLabel = new Label(Text = "<No Image>")
-        let heightLabel = new Label(Text = "<No Image>")
-        let offXBox = new TextBox()
-        let offYBox = new TextBox()
+        let widthLabel = new Label(DataContext = model)
+        widthLabel.TextBinding.Bind(model, (fun m -> m.width)) |> ignore
+        let heightLabel = new Label(DataContext = model)
+        heightLabel.TextBinding.Bind(model, (fun m -> m.height)) |> ignore
+        let offXBox = new NumericStepper(Increment = 1.0, MaximumDecimalPlaces = 0)
+        offXBox.ValueBinding.Bind(model, (fun m -> m.offX)) |> ignore
+        let offYBox = new NumericStepper(Increment = 1.0, MaximumDecimalPlaces = 0)
+        offYBox.ValueBinding.Bind(model, (fun m -> m.offY)) |> ignore
 
         let addButton = new Button(Text = "Add Images")
         let delButton = new Button(Text = "Delete Images")
@@ -80,6 +133,23 @@ type LEForm () =
         let exptButton = new Button(Text = "Export Images")
         let addBlkButton = new Button(Text = "Add Blanks")
         let insBlkButton = new Button(Text = "Insert Blanks")
+
+        radios.SelectedKeyChanged.Add (fun e ->
+            if radios.SelectedKey = "image" then
+                offXBox.Enabled <- true
+                offYBox.Enabled <- true
+                addButton.Enabled <- true
+                delButton.Enabled <- true
+                replButton.Enabled <- true
+                instButton.Enabled <- true
+            else
+                offXBox.Enabled <- false
+                offYBox.Enabled <- false
+                addButton.Enabled <- false
+                delButton.Enabled <- false
+                replButton.Enabled <- false
+                instButton.Enabled <- false
+        )
 
         let preButton = new Button(Text = "<<")
         let nextButton = new Button(Text = ">>")
@@ -93,9 +163,13 @@ type LEForm () =
                         MinValue = 1,
                         Value = 1,
                         Orientation = Orientation.Horizontal)
-        let opsCheckList = new CheckBoxList()
-        opsCheckList.Items.Add "No Blurring"
-        opsCheckList.Items.Add "No Anti-aliasing"
+        let opsCheckList = new StackLayout(Orientation = Orientation.Horizontal)
+        let nblurCheck = new CheckBox(Text = "No Blurring")
+        opsCheckList.Items.Add(StackLayoutItem nblurCheck)
+        nblurCheck.CheckedBinding.Bind(model, (fun m -> m.nblur)) |> ignore
+        let aliasCheck = new CheckBox(Text = "No Anti-aliasing")
+        opsCheckList.Items.Add(StackLayoutItem aliasCheck)
+        aliasCheck.CheckedBinding.Bind(model, (fun m -> m.alias)) |> ignore
 
         let imgBox = new ImageView()
         imgBox.BackgroundColor <- new Color(0f, 0f, 0f)
@@ -105,6 +179,7 @@ type LEForm () =
         let progressBar = new ProgressBar(MinValue = 0, MaxValue = 100)
 
         let opPanel = new StackLayout([|
+            radios |> StackLayoutItem;
             new TableLayout [|
                 TableRow [| TableCell (new Label(Text = "Width")); TableCell widthLabel |];
                 TableRow [| TableCell (new Label(Text = "Height")); TableCell heightLabel |];
@@ -125,7 +200,6 @@ type LEForm () =
         opPanel.HorizontalContentAlignment <- HorizontalAlignment.Stretch
 
         let panel = new StackLayout([|
-            radios |> StackLayoutItem;
             new TableLayout [|
                 TableRow [| TableCell opPanel; TableCell imgBox |]
             |] |> StackLayoutItem;
