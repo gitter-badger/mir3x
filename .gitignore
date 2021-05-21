@@ -1,7 +1,6 @@
 .vs/
 .vscode/
-[Oo]bj/
-[Bb]in/
-packages/
+obj/
+bin/
 
 .DS_Store
