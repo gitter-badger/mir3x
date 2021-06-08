@@ -1,1 +1,3 @@
 # mir3x
+
+rslsync key, `BL7DZV5S6UAZBUTXOBRSVDFTAAOPZDNGA`
